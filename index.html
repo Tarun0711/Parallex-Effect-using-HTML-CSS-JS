@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./Style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fasthand&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="section1">
+      <div class="upper-text">
+        <h1>How<span>Bee</span></h1>
+        <p>into the hive</p>
+      </div>
+
+      <div class="middle-text">
+        <p>A New Dawn Awaits!</p>
+      </div>
+      <div class="next-middle">
+        <p>Where Learning Meets Innovation</p>
+        <p>Personalized Experiences, Just for You</p>
+      </div>
+    </section>
+    <section id="section2">
+      <div class="upper-text1">
+        <h1>Hive <span>Your way</span></h1>
+        <p>to Success</p>
+      </div>
+      <div class="middle-text2">
+        <div class="next-middle2">
+          <p>Where Learning Meets Innovation</p>
+          <p>Personalized Experiences, Just for You</p>
+        </div>
+      </div>
+      <div class="bottom-text-container">
+        <h1>How<span>Bee</span></h1>
+        <p>
+          is a multi participant video calling platform tailored for posture
+          based activities designed to enable teachers to instruct students in
+          batches while maintaining individualized attention.
+        </p>
+      </div>
+    </section>
+    <div class="main">
+      <div class="sun"></div>
+
+      <div class="mountain-Container1"></div>
+      <div class="bottom-stone1"></div>
+      <div class="bird-container">
+        <div class="bird 1"></div>
+        <div class="bird 2"></div>
+        <div class="bird 3"></div>
+      </div>
+    </div>
+
+    <script>
+      let lastScrollTop = 0;
+
+      const mountainContainer = document.querySelector(".mountain-Container1");
+      const bottomStone = document.querySelector(".bottom-stone1");
+      const sun = document.querySelector(".sun");
+      const birds = document.querySelectorAll(".bird");
+      let body = document.querySelector("body");
+
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const halfWindowHeight = window.innerHeight / 2;
+
+        if (scrollTop > halfWindowHeight) {
+          body.style.background =
+            "linear-gradient(180deg, #69A8DB -10.3%, #FFC986 34.57%)";
+        } else {
+          body.style.background =
+            " linear-gradient(to bottom, #94ccff, #d5f5ff)";
+        }
+        if (scrollTop < halfWindowHeight) {
+          mountainContainer.classList.remove("mountain-Container2");
+          mountainContainer.classList.add("mountain-Container1");
+          bottomStone.classList.remove("bottom-stone2");
+          bottomStone.classList.add("bottom-stone1");
+        } else {
+          mountainContainer.classList.remove("mountain-Container1");
+          mountainContainer.classList.add("mountain-Container2");
+          bottomStone.classList.remove("bottom-stone1");
+          bottomStone.classList.add("bottom-stone2");
+        }
+
+        if (scrollTop > halfWindowHeight) {
+          sun.style.width = "0";
+          sun.style.height = "0";
+        //   sun.style.top = "50%";
+        //   sun.style.left = "50%";
+        //   sun.style.transform = "translate(50%, 50%)";
+        } else {
+          sun.style.width = "100px";
+          sun.style.height = "100px";
+          sun.style.top = "70px";
+          sun.style.left = "80px";
+        //   sun.style.transform = "";
+          sun.style.transition = "width 0.5s ease, height 0.5s ease";
+        }
+
+        if (scrollTop > halfWindowHeight) {
+          birds.forEach((bird) => (bird.style.opacity = "0"));
+        } else {
+          birds.forEach((bird) => (bird.style.opacity = "1"));
+        }
+
+        lastScrollTop = scrollTop;
+      });
+    </script>
+  </body>
+</html>
